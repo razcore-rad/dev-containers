@@ -1,0 +1,3 @@
+FROM razcorerad/cxx.dev
+
+RUN apt update && apt install -y libglfw3-dev && apt clean -y

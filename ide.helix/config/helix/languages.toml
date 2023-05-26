@@ -1,0 +1,47 @@
+[[language]]
+  name = "c"
+  scope = "source.c"
+  injection-regex = "c"
+  file-types = ["c", "h"]
+  roots = []
+  comment-token = "//"
+  language-server = { command = "clangd" }
+  indent = { tab-width = 2, unit = "  " }
+  auto-format = true
+  formatter = { command = "clang-format" }
+
+[[language]]
+  name = "cpp"
+  scope = "source.cpp"
+  injection-regex = "cpp"
+  file-types = ["cc", "hh", "c++", "cpp", "hpp", "h", "ipp", "tpp", "cxx", "hxx", "ixx", "txx", "ino", "C", "H", "cu", "cuh"]
+  roots = []
+  comment-token = "//"
+  language-server = { command = "clangd" }
+  indent = { tab-width = 2, unit = "  " }
+  auto-format = true
+  formatter = { command = "clang-format" }
+
+[[language]]
+  name = "gdscript"
+  scope = "source.gdscript"
+  injection-regex = "gdscript"
+  file-types = ["gd"]
+  roots = ["project.godot"]
+  shebangs = []
+  auto-format = true
+  formatter = { command = "gdformat", args = ["-"] }
+  comment-token = "#"
+  indent = { tab-width = 4, unit = "\t" }
+
+  [language.language-server]
+    command = "nc"
+    args = ["localhost", "6005"]
+    language-id = "gdscript"
+
+[[language]]
+  name = "markdown"
+  roots = []
+  language-server = { command = "ltex-ls" }
+  soft-wrap.enable = true
+

@@ -1,0 +1,22 @@
+theme = "onedark"
+
+[editor]
+line-number = "relative"
+cursorline = true
+cursorcolumn = true
+true-color = true
+color-modes = true
+text-width = 100
+rulers = [100]
+
+[editor.soft-wrap]
+wrap-at-text-width = true
+
+[editor.whitespace]
+render = "all"
+
+[editor.whitespace.characters]
+render = true
+
+[keys.insert]
+j = { k = "normal_mode" }
