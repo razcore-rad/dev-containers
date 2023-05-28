@@ -1,6 +1,8 @@
-project('app', 'c', 'cpp', default_options: 'prefer_static=true')
+project('app', 'cpp', default_options : ['warning_level=3', 'cpp_std=c++20'])
+
 dependencies = [
   dependency('gl'),
+  dependency('glew'),
   dependency('glfw3')
 ]
 source = [
