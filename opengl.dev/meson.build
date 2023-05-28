@@ -8,4 +8,5 @@ dependencies = [
 source = [
   'src/main.cpp'
 ]
-executable(meson.project_name(), source, dependencies: dependencies)
+executable(meson.project_name(), sources, dependencies: dependencies, cpp_args: ['-DDEBUG=1'])
+
