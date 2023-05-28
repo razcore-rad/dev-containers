@@ -8,7 +8,7 @@ RUN apt update && apt install -y libglfw3-dev libglew-dev && apt clean -y
 
 USER ${USERNAME}
 WORKDIR ${HOME}/downloads
-RUN git clone https://github.com/razcore-rad/glsl-language-server.git --recursive
+RUN git clone https://github.com/svenstaro/glsl-language-server.git --recursive
 
 WORKDIR ${HOME}/downloads/glsl-language-server
 RUN cmake -B build -G Ninja -DCMAKE_INSTALL_PREFIX=${HOME}/applications && ninja -C build install
