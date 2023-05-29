@@ -1,0 +1,20 @@
+FROM razcorerad/ide.helix
+
+ARG USERNAME=ubuntu
+ARG APPS_DIR=/home/${USERNAME}/applications
+ARG WORK_DIR=/home/${USERNAME}/work
+
+USER root
+RUN apt update && apt install -y clangd clang-format cmake lldb pkg-config meson && apt clean -y
+RUN update-alternatives --install /usr/bin/lldb-vscode lldb-vscode /usr/bin/lldb-vscode-15 1
+
+USER ubuntu
+WORKDIR ${APPS_DIR}/bin
+RUN wget -qO- https://ziglang.org/builds/zig-linux-x86_64-0.11.0-dev.3312+ab37ab33c.tar.xz | tar -xJ --strip-components 1
+RUN chmod +x zig
+
+RUN wget -q -O zls https://zig.pm/zls/downloads/x86_64-linux/bin/zls
+RUN chmod +x zls
+
+WORKDIR ${WORK_DIR}
+

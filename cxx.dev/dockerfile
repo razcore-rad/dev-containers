@@ -1,6 +1,0 @@
-FROM razcorerad/ide.helix
-
-USER root
-RUN apt update && apt install -y clangd clang-format cmake pkg-config meson && apt clean -y
-
-USER ubuntu
