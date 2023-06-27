@@ -13,11 +13,12 @@ export extern "dev run" [container = "", ...argv: string] {
 
   let WORKDIR = (pwd | path basename)
   let CONTAINER = if ($container | is-empty) { $WORKDIR } else { $container }
-  docker run $argv -it --rm --name $WORKDIR $XARGS $"--volume=($env.HOME)/.ssh:/home/($USERNAME)/.ssh:ro" $"--volume=.:/home/($USERNAME)/work" $"razcorerad/($CONTAINER)"
+  docker run $argv -it --rm --name $CONTAINER $XARGS $"--volume=($env.HOME)/.ssh:/home/($USERNAME)/.ssh:ro" $"--volume=.:/home/($USERNAME)/work" $"razcorerad/($CONTAINER)"
 }
 
 export extern "dev in" [container = "", ...argv: string] {
   let SHELL = nu
-  let CONTAINER = (pwd | path basename)
+  let WORKDIR = (pwd | path basename)
+  let CONTAINER = if ($container | is-empty) { $WORKDIR } else { $container }
   docker exec $argv -it $CONTAINER $SHELL
 }
