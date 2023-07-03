@@ -10,7 +10,7 @@ RUN update-alternatives --install /usr/bin/lldb-vscode lldb-vscode /usr/bin/lldb
 
 USER ubuntu
 WORKDIR ${APPS_DIR}/bin
-RUN wget -qO- https://ziglang.org/builds/zig-linux-x86_64-0.11.0-dev.3857+7322aa118.tar.xz | tar -xJ --strip-components 1
+RUN wget -qO- https://ziglang.org/builds/zig-linux-x86_64-0.11.0-dev.3910+689f3163a.tar.xz | tar -xJ --strip-components 1
 RUN chmod +x zig
 
 RUN wget -q -O zls https://zig.pm/zls/downloads/x86_64-linux/bin/zls
